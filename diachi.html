@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hệ Thống Cửa Hàng – Laptop SecondHand HCM</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #c8922a;
+  --gold-light: #e8c060;
+  --gold-dim: rgba(200,146,42,0.12);
+  --black: #0a0601;
+  --dark: #120900;
+  --card-bg: #1c1208;
+  --border: rgba(200,146,42,0.22);
+  --gray: #a09070;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: var(--black);
+  color: #f5ede0;
+  min-height: 100vh;
+}
+
+/* ── TICKER ── */
+.ticker-bar {
+  background: #0e0700;
+  border-bottom: 1px solid rgba(200,146,42,0.12);
+  overflow: hidden;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+.ticker-track span { display: flex; align-items: center; gap: 7px; }
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── HEADER ── */
+.header {
+  background: rgba(8,5,0,0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.logo { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+.logo-bar { width: 3px; height: 40px; background: var(--gold); border-radius: 2px; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px; font-weight: 700; color: #f5ede0; letter-spacing: 2.5px; line-height: 1;
+}
+.logo-sub { font-size: 7.5px; letter-spacing: 5px; color: rgba(200,146,42,0.65); text-transform: uppercase; margin-top: 4px; }
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.nav a {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.25s;
+  position: relative;
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.nav a:hover { color: var(--gold); }
+.nav a:hover::after { transform: scaleX(1); }
+.nav a.active { color: var(--gold); }
+.nav a.active::after { transform: scaleX(1); }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  position: relative;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.page-hero-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+  font-weight: 700;
+}
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  color: #f5ede0;
+  line-height: 1.1;
+}
+.page-hero h1 span { color: var(--gold); font-style: italic; }
+.page-hero p {
+  color: var(--gray);
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── STORE GRID ── */
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* ── STORE CARD ── */
+.store-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.store-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.store-card:hover {
+  border-color: rgba(200,146,42,0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(200,146,42,0.1);
+}
+.store-card:hover::before { opacity: 1; }
+.store-card.selected {
+  border-color: var(--gold);
+  background: rgba(200,146,42,0.04);
+  box-shadow: 0 0 40px rgba(200,146,42,0.15);
+}
+.store-card.selected::before { opacity: 1; }
+
+.store-num {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(200,146,42,0.08);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.store-body {
+  padding: 28px;
+}
+
+.store-district {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.store-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #f5ede0;
+  margin-bottom: 22px;
+  line-height: 1.2;
+}
+
+.store-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.store-icon {
+  font-size: 14px;
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.store-text {
+  font-size: 13.5px;
+  color: #c8b88a;
+  line-height: 1.6;
+}
+.store-text strong { color: #f5ede0; font-weight: 600; }
+
+.store-footer {
+  border-top: 1px solid rgba(200,146,42,0.15);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.open-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #56a870;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.open-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #56a870;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.map-btn {
+  padding: 8px 18px;
+  background: rgba(200,146,42,0.1);
+  color: var(--gold);
+  border: 1px solid var(--border);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.25s;
+}
+.map-btn:hover {
+  background: var(--gold);
+  color: #1a1209;
+  border-color: var(--gold);
+}
+
+/* ── MAP SECTION ── */
+.map-section {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--card-bg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.map-header {
+  background: rgba(8,5,0,0.95);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.map-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.map-active-label {
+  font-size: 13px;
+  color: rgba(245,237,224,0.5);
+}
+.map-active-label span {
+  color: #f5ede0;
+  font-weight: 600;
+}
+
+.map-frame {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: none;
+  filter: grayscale(0.2) brightness(0.9);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #060400;
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.footer-copy {
+  font-size: 11px;
+  color: rgba(160,144,112,0.5);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .header { padding: 0 20px; }
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span>FREESHIP đơn từ 5 triệu</span>
+    <span>GIẢM 1TR đơn từ 20tr – nhập LAP1000</span>
+    <span>BẢO HÀNH 12 THÁNG – 1 ĐỔI 1 TRONG 30 NGÀY</span>
+    <span>NHẬP LAP500 GIẢM 500K đơn từ 10tr</span>
+    <span>FREESHIP đơn từ 5 triệu</span>
+    <span>GIẢM 1TR đơn từ 20tr – nhập LAP1000</span>
+    <span>BẢO HÀNH 12 THÁNG – 1 ĐỔI 1 TRONG 30 NGÀY</span>
+    <span>NHẬP LAP500 GIẢM 500K đơn từ 10tr</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="trangchu.html" class="logo">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <span class="logo-main">LAPTOP</span>
+      <span class="logo-sub">Secondhand</span>
+    </div>
+  </a>
+  <nav class="nav">
+    <a href="trangchu.html">Trang chủ</a>
+    <a href="thumua.html">Thu mua</a>
+    <a href="index.html">Cửa hàng</a>
+    <a href="diachi.html" class="active">Địa chỉ</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="page-hero-label">Hệ thống phân phối trực tiếp</span>
+  <h1>Hệ Thống <span>Cửa Hàng</span></h1>
+  <p>3 chi nhánh tại TP. Hồ Chí Minh – Trải nghiệm máy trực tiếp, hỗ trợ kỹ thuật tận tâm</p>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- STORE GRID -->
+  <div class="store-grid">
+
+    <!-- STORE 1 -->
+    <div class="store-card selected" id="card-1" onclick="selectStore(1)">
+      <div class="store-num">01</div>
+      <div class="store-body">
+        <div class="store-district">Quận Tân Phú</div>
+        <div class="store-name">Chi nhánh<br>Tân Phú</div>
+        <div class="store-detail">
+          <span class="store-icon">📍</span>
+          <span class="store-text">56 Lê Văn Phan, Phú Thọ Hòa,<br>Quận Tân Phú, TP.HCM</span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">📞</span>
+          <span class="store-text">Hotline: <strong>0928 613 686</strong></span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">🕒</span>
+          <span class="store-text">08:30 – 21:30 mỗi ngày</span>
+        </div>
+      </div>
+      <div class="store-footer">
+        <span class="open-badge">ĐANG MỞ CỬA</span>
+        <button class="map-btn" onclick="selectStore(1)">Xem bản đồ</button>
+      </div>
+    </div>
+
+    <!-- STORE 2 -->
+    <div class="store-card" id="card-2" onclick="selectStore(2)">
+      <div class="store-num">02</div>
+      <div class="store-body">
+        <div class="store-district">Quận Tân Bình</div>
+        <div class="store-name">Chi nhánh<br>Tân Bình</div>
+        <div class="store-detail">
+          <span class="store-icon">📍</span>
+          <span class="store-text">363 Phạm Văn Bạch, Sơn Kỳ,<br>Quận Tân Bình, TP.HCM</span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">📞</span>
+          <span class="store-text">Hotline: <strong>0928 613 686</strong></span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">🕒</span>
+          <span class="store-text">08:30 – 21:30 mỗi ngày</span>
+        </div>
+      </div>
+      <div class="store-footer">
+        <span class="open-badge">ĐANG MỞ CỬA</span>
+        <button class="map-btn" onclick="selectStore(2)">Xem bản đồ</button>
+      </div>
+    </div>
+
+    <!-- STORE 3 -->
+    <div class="store-card" id="card-3" onclick="selectStore(3)">
+      <div class="store-num">03</div>
+      <div class="store-body">
+        <div class="store-district">Quận Bình Tân</div>
+        <div class="store-name">Chi nhánh<br>Bình Tân</div>
+        <div class="store-detail">
+          <span class="store-icon">📍</span>
+          <span class="store-text">891 Bình Trị Đông, Bình Trị Đông,<br>Quận Bình Tân, TP.HCM</span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">📞</span>
+          <span class="store-text">Hotline: <strong>0928 613 686</strong></span>
+        </div>
+        <div class="store-detail">
+          <span class="store-icon">🕒</span>
+          <span class="store-text">08:30 – 21:30 mỗi ngày</span>
+        </div>
+      </div>
+      <div class="store-footer">
+        <span class="open-badge">ĐANG MỞ CỬA</span>
+        <button class="map-btn" onclick="selectStore(3)">Xem bản đồ</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <div class="map-header">
+      <span class="map-title">Bản đồ chỉ đường</span>
+      <span class="map-active-label">Đang xem: <span id="mapLabel">Chi nhánh Tân Phú</span></span>
+    </div>
+    <iframe id="mapFrame" class="map-frame"
+      src="https://www.google.com/maps?q=56+Lê+Văn+Phan,+Tân+Phú,+TP.HCM&z=17&output=embed"
+      allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Laptop Secondhand</div>
+  <div class="footer-copy">© 2026 Laptop Secondhand · Hotline: 0928 613 686 (Huỳnh Chí Công)</div>
+</footer>
+
+<script>
+const stores = {
+  1: { url: "https://www.google.com/maps?q=56+Lê+Văn+Phan,+Tân+Phú,+TP.HCM&z=17&output=embed", label: "Chi nhánh Tân Phú" },
+  2: { url: "https://www.google.com/maps?q=363+Phạm+Văn+Bạch,+Tân+Bình,+TP.HCM&z=17&output=embed", label: "Chi nhánh Tân Bình" },
+  3: { url: "https://www.google.com/maps?q=891+Bình+Trị+Đông,+Bình+Tân,+TP.HCM&z=17&output=embed", label: "Chi nhánh Bình Tân" }
+};
+
+function selectStore(id) {
+  document.querySelectorAll('.store-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('card-' + id).classList.add('selected');
+  document.getElementById('mapFrame').src = stores[id].url;
+  document.getElementById('mapLabel').textContent = stores[id].label;
+  document.querySelector('.map-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

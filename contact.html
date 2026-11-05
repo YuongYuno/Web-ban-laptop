@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liên Hệ – Laptop SecondHand HCM</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #c8922a;
+  --gold-light: #e8c060;
+  --gold-dim: rgba(200,146,42,0.12);
+  --black: #0a0601;
+  --card-bg: #1c1208;
+  --border: rgba(200,146,42,0.22);
+  --gray: #a09070;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: var(--black);
+  color: #f5ede0;
+  min-height: 100vh;
+}
+
+/* ── TICKER ── */
+.ticker-bar {
+  background: #0e0700;
+  border-bottom: 1px solid rgba(200,146,42,0.12);
+  overflow: hidden;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+.ticker-track span { display: flex; align-items: center; gap: 7px; }
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── HEADER ── */
+.header {
+  background: rgba(8,5,0,0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.logo { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+.logo-bar { width: 3px; height: 40px; background: var(--gold); border-radius: 2px; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px; font-weight: 700; color: #f5ede0; letter-spacing: 2.5px; line-height: 1;
+}
+.logo-sub { font-size: 7.5px; letter-spacing: 5px; color: rgba(200,146,42,0.65); text-transform: uppercase; margin-top: 4px; }
+
+.nav { display: flex; gap: 32px; align-items: center; }
+.nav a {
+  color: var(--gray); text-decoration: none; font-size: 11.5px;
+  font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.25s; position: relative;
+}
+.nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s;
+}
+.nav a:hover { color: var(--gold); }
+.nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+.nav a.active { color: var(--gold); }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  position: relative;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.hero-label {
+  font-size: 10px; letter-spacing: 4px; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 12px; display: block; font-weight: 700;
+}
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700; color: #f5ede0; line-height: 1.1;
+}
+.page-hero h1 span { color: var(--gold); font-style: italic; }
+.page-hero p { color: var(--gray); margin-top: 14px; font-size: 14px; font-weight: 300; }
+
+/* ── MAIN ── */
+.main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.card-body { padding: 32px 28px; }
+
+.section-label {
+  font-size: 10px; letter-spacing: 3px; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 8px; font-weight: 700;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: #f5ede0;
+  margin-bottom: 24px; line-height: 1.2;
+}
+
+/* ── CONTACT ITEMS ── */
+.contact-list { display: flex; flex-direction: column; gap: 0; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(200,146,42,0.1);
+  text-decoration: none;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item:hover .contact-icon { background: var(--gold); color: #1a1209; }
+.contact-item:hover .contact-value { color: var(--gold); }
+
+.contact-icon {
+  width: 44px; height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: all 0.25s;
+  background: var(--gold-dim);
+}
+
+.contact-info { flex: 1; }
+.contact-label {
+  font-size: 10px; letter-spacing: 1.5px; color: var(--gray);
+  text-transform: uppercase; margin-bottom: 3px; font-weight: 600;
+}
+.contact-value {
+  font-size: 15px; font-weight: 600; color: #f5ede0;
+  transition: color 0.25s; word-break: break-all;
+}
+
+.contact-arrow {
+  font-size: 16px; color: rgba(200,146,42,0.3);
+  transition: all 0.25s;
+}
+.contact-item:hover .contact-arrow {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+/* ── SOCIAL LINKS ── */
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #f5ede0;
+  font-size: 13px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.social-btn:hover {
+  border-color: rgba(200,146,42,0.6);
+  background: var(--gold-dim);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+.social-icon { font-size: 18px; flex-shrink: 0; }
+.social-info { display: flex; flex-direction: column; }
+.social-platform { font-size: 9px; letter-spacing: 1.5px; color: var(--gray); text-transform: uppercase; margin-bottom: 2px; font-weight: 600; }
+.social-handle { font-size: 12.5px; font-weight: 600; }
+
+/* ── HOURS CARD ── */
+.hours-grid { display: flex; flex-direction: column; gap: 0; }
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(200,146,42,0.1);
+  font-size: 13.5px;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--gray); font-weight: 400; }
+.hours-time { color: #f5ede0; font-weight: 600; }
+.hours-time.open { color: #56a870; }
+
+.open-now-banner {
+  background: rgba(86,168,112,0.08);
+  border: 1px solid rgba(86,168,112,0.25);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: #56a870;
+  font-weight: 600;
+}
+.open-dot {
+  width: 8px; height: 8px;
+  background: #56a870;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(86,168,112,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(86,168,112,0); }
+}
+
+/* ── MAP MINI ── */
+.map-card {
+  grid-column: 1 / -1;
+}
+.map-header {
+  background: rgba(8,5,0,0.95);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.map-title { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-weight: 700; }
+.map-subtitle { font-size: 12px; color: rgba(245,237,224,0.5); }
+.map-frame {
+  display: block; width: 100%; height: 300px; border: none;
+  filter: grayscale(0.2) brightness(0.9);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #060400;
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); font-weight: 700; }
+.footer-copy { font-size: 11px; color: rgba(160,144,112,0.5); letter-spacing: 1px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .header { padding: 0 20px; }
+  .main { grid-template-columns: 1fr; padding: 20px 20px 60px; }
+  .map-card { grid-column: 1; }
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+  .social-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span>FREESHIP đơn từ 5 triệu</span>
+    <span>GIẢM 1TR đơn từ 20tr – nhập LAP1000</span>
+    <span>BẢO HÀNH 12 THÁNG – 1 ĐỔI 1 TRONG 30 NGÀY</span>
+    <span>NHẬP LAP500 GIẢM 500K đơn từ 10tr</span>
+    <span>FREESHIP đơn từ 5 triệu</span>
+    <span>GIẢM 1TR đơn từ 20tr – nhập LAP1000</span>
+    <span>BẢO HÀNH 12 THÁNG – 1 ĐỔI 1 TRONG 30 NGÀY</span>
+    <span>NHẬP LAP500 GIẢM 500K đơn từ 10tr</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="logo" href="trangchu.html">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <span class="logo-main">LAPTOP</span>
+      <span class="logo-sub">Secondhand</span>
+    </div>
+  </a>
+  <nav class="nav">
+    <a href="trangchu.html">Trang chủ</a>
+    <a href="thumua.html">Thu mua</a>
+    <a href="diachi.html">Cửa hàng</a>
+    <a href="index.html">Mua sắm</a>
+    <a href="contact.html" class="active">Liên hệ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-label">Hỗ trợ kỹ thuật & Tư vấn mua hàng</span>
+  <h1>Liên Hệ <span>Với Chúng Tôi</span></h1>
+  <p>Chuyên gia tư vấn cấu hình laptop sẵn sàng hỗ trợ bạn 24/7</p>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- THÔNG TIN LIÊN HỆ -->
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Thông tin liên lạc</div>
+      <div class="section-title">Hỗ trợ trực tiếp</div>
+
+      <div class="contact-list">
+
+        <a class="contact-item" href="tel:0928613686">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <div class="contact-label">Điện thoại / Hotline (Huỳnh Chí Công)</div>
+            <div class="contact-value">0928 613 686</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+
+        <a class="contact-item" href="mailto:huynhchicong4655@gmail.com">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <div class="contact-label">Email hỗ trợ</div>
+            <div class="contact-value">huynhchicong4655@gmail.com</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+
+        <a class="contact-item" href="https://zalo.me/0928613686" target="_blank">
+          <div class="contact-icon">💬</div>
+          <div class="contact-info">
+            <div class="contact-label">Zalo tư vấn kỹ thuật</div>
+            <div class="contact-value">0928 613 686</div>
+          </div>
+          <div class="contact-arrow">→</div>
+        </a>
+
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <div class="contact-label">Địa chỉ cửa hàng</div>
+            <div class="contact-value">891 Bình Trị Đông, Bình Tân, TP.HCM</div>
+          </div>
+          <div class="contact-arrow" style="opacity:0">→</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MẠNG XÃ HỘI + GIỜ MỞ CỬA -->
+  <div style="display:flex;flex-direction:column;gap:32px;">
+
+    <!-- SOCIAL -->
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Kênh trực tuyến</div>
+        <div class="section-title">Theo dõi hệ thống</div>
+        <div class="social-grid">
+          <a class="social-btn" href="https://www.facebook.com/share/1JAgunUvKM/?mibextid=wwXIfr" target="_blank">
+            <span class="social-icon">📘</span>
+            <div class="social-info">
+              <span class="social-platform">Facebook</span>
+              <span class="social-handle">Laptop Secondhand</span>
+            </div>
+          </a>
+          <a class="social-btn" href="#" target="_blank">
+            <span class="social-icon">📸</span>
+            <div class="social-info">
+              <span class="social-platform">Instagram</span>
+              <span class="social-handle">@laptop.secondhand</span>
+            </div>
+          </a>
+          <a class="social-btn" href="#" target="_blank">
+            <span class="social-icon">🎵</span>
+            <div class="social-info">
+              <span class="social-platform">TikTok</span>
+              <span class="social-handle">@laptop.secondhand</span>
+            </div>
+          </a>
+          <a class="social-btn" href="#" target="_blank">
+            <span class="social-icon">🛍️</span>
+            <div class="social-info">
+              <span class="social-platform">Shopee</span>
+              <span class="social-handle">laptopsecondhand.hcm</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIỜ MỞ CỬA -->
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Thời gian làm việc</div>
+        <div class="section-title">Giờ mở cửa</div>
+
+        <div class="open-now-banner">
+          <div class="open-dot"></div>
+          Cửa hàng đang mở cửa – mời bạn ghé xem máy!
+        </div>
+
+        <div class="hours-grid">
+          <div class="hours-row">
+            <span class="hours-day">Thứ 2 – Thứ 6</span>
+            <span class="hours-time open">08:30 – 21:30</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Thứ 7</span>
+            <span class="hours-time open">08:30 – 21:30</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Chủ nhật</span>
+            <span class="hours-time open">09:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Lễ / Tết</span>
+            <span class="hours-time" style="color:var(--gold)">Thông báo riêng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MAP -->
+  <div class="card map-card">
+    <div class="map-header">
+      <span class="map-title">Bản đồ chi nhánh</span>
+      <span class="map-subtitle">891 Bình Trị Đông, Bình Tân, TP.HCM</span>
+    </div>
+    <iframe class="map-frame"
+      src="https://www.google.com/maps?q=891+Bình+Trị+Đông,+Bình+Tân,+TP.HCM&z=17&output=embed"
+      allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Laptop Secondhand</div>
+  <div class="footer-copy">© 2026 Laptop Secondhand · Hotline: 0928 613 686 (Huỳnh Chí Công)</div>
+</footer>
+
+</body>
+</html>

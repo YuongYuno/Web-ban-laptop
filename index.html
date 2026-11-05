@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop SecondHand – Chuyên Laptop Cũ, Likenew Giá Rẻ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Be Vietnam Pro', sans-serif !important; -webkit-font-smoothing: antialiased; }
+        .header-logo-text, .slide-text h2, .section-title h2,
+        .pd-right h2, .pol-box h2, .btn-xem-them { font-family: 'Playfair Display', serif !important; }
+        .category-menu, .category-menu a, .category-menu li,
+        .icon-cat span, .product-info h3,
+        .sort-bar, .footer-col, .footer-col p,
+        .footer-col ul li a, .header-action-item span { font-family: 'Be Vietnam Pro', sans-serif !important; }
+
+        header { transition: transform .4s cubic-bezier(.4,0,.2,1); }
+        .category-menu { transition: transform .4s cubic-bezier(.4,0,.2,1); }
+
+        .category-menu > ul > li:first-child > a {
+            padding-top: 13px !important;
+            padding-right: 42px !important;
+            position: relative;
+        }
+        .badge-new {
+            position: absolute !important;
+            top: 5px !important; right: 8px !important;
+            left: auto !important; transform: none !important;
+            font-size: 8px; font-weight: 800; color: #fff;
+            background: #e05a3a; padding: 1px 5px; border-radius: 3px;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            letter-spacing: .5px; text-transform: uppercase;
+            pointer-events: none; white-space: nowrap; z-index: 5;
+        }
+        .thu-mua-item > a {
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            font-weight: 600 !important; color: #dccba0 !important;
+            display: flex; align-items: center;
+            padding: 13px 14px; text-decoration: none;
+            font-size: 13px; letter-spacing: .5px;
+            transition: color .2s;
+        }
+        .thu-mua-item > a:hover { color: #c8922a !important; }
+
+        /* ═══ ICON CATEGORY ═══ */
+        .icon-cats {
+            display: flex; justify-content: center; gap: 16px;
+            padding: 32px 24px; flex-wrap: wrap;
+            background: linear-gradient(180deg,rgba(10,6,1,0.97) 0%,rgba(22,13,4,0.95) 100%);
+            border-bottom: 1px solid rgba(200,146,42,0.18);
+            position: relative; z-index: 1;
+        }
+        .icon-cat {
+            position: relative; display: flex; flex-direction: column;
+            align-items: center; gap: 12px; padding: 22px 36px 18px;
+            background: linear-gradient(145deg,#1c1106,#241708);
+            border: 1px solid rgba(200,146,42,0.28); border-radius: 12px;
+            cursor: pointer; transition: all .35s cubic-bezier(.34,1.56,.64,1);
+            color: #c8a060; font-size: 11px; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase; min-width: 140px;
+            overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+        }
+        .icon-cat::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg,transparent,#c8922a,transparent);
+            opacity: 0; transition: opacity .35s;
+        }
+        .icon-cat:hover {
+            border-color: rgba(200,146,42,0.75);
+            background: linear-gradient(145deg,#221508,#2e1c09); color: #e8c060;
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 28px rgba(200,146,42,0.12);
+        }
+        .icon-cat:hover::before { opacity: 1; }
+        .icon-cat-img {
+            width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;
+            transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+        }
+        .icon-cat:hover .icon-cat-img { transform: scale(1.15) translateY(-4px); }
+        .icon-cat-img svg { width: 100%; height: 100%; }
+
+        /* ═══ PRODUCT GRID ═══ */
+        .products-section {
+            padding: 0 0 40px;
+            background: linear-gradient(180deg,#160e04 0%,#1a1108 100%);
+            min-height: 400px; position: relative; z-index: 1;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-title { text-align: center; padding: 44px 0 28px; }
+        .section-title h2 { font-size: 34px; color: #f5ede0; letter-spacing: 2px; margin-bottom: 12px; }
+        .section-title .title-rule { width: 56px; height: 2px; background: #c8922a; margin: 0 auto; }
+
+        .sort-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 24px; padding-bottom: 14px;
+            border-bottom: 1px solid rgba(200,146,42,0.15);
+            font-size: 13px; color: #8a7560;
+        }
+        .sort-bar-left { display: flex; align-items: center; gap: 10px; }
+        .sort-bar select {
+            padding: 7px 14px; background: #1e1408;
+            border: 1px solid rgba(200,146,42,0.4); color: #c8b88a;
+            border-radius: 4px; font-size: 13px;
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+            cursor: pointer; outline: none;
+        }
+        .sort-bar select option { background: #1e1408; color: #c8b88a; }
+        .products {
+            display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 20px;
+        }
+        .product {
+            display: flex; flex-direction: column;
+            background: rgba(18,11,3,0.94); border: 1px solid rgba(200,146,42,0.14);
+            border-radius: 6px; overflow: hidden;
+            transition: all .35s cubic-bezier(.4,0,.2,1); cursor: pointer; position: relative;
+        }
+        .product:hover {
+            transform: translateY(-5px); border-color: rgba(200,146,42,0.5);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+        }
+        .product-img-wrap { position: relative; overflow: hidden; background: #100b04; }
+        .product-img-wrap img {
+            width: 100%; height: 220px; object-fit: cover; display: block;
+            transition: transform .55s cubic-bezier(.4,0,.2,1);
+        }
+        .product:hover .product-img-wrap img { transform: scale(1.06); }
+        .product-quick-add {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(10,6,1,0.92); border-top: 1px solid rgba(200,146,42,0.3);
+            padding: 11px 16px; text-align: center; font-size: 11px; font-weight: 600;
+            letter-spacing: 1.5px; color: #c8922a; text-transform: uppercase;
+            transform: translateY(100%); transition: transform .3s cubic-bezier(.4,0,.2,1);
+        }
+        .product:hover .product-quick-add { transform: translateY(0); }
+        .badge-product {
+            position: absolute; top: 10px; left: 10px;
+            font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 2px;
+            font-family: 'Be Vietnam Pro', sans-serif !important; letter-spacing: .3px;
+        }
+        .new-badge { background: rgba(26,18,9,0.9); color: #c8922a; border: 1px solid rgba(200,146,42,0.5); }
+        .sale-badge { background: #e05a3a; color: #fff; }
+        .voucher-badge { background: #c8922a; color: #1a1209; }
+        .product-info { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+        .product-info h3 {
+            font-size: 14px; font-weight: 600; color: #d0c0a0; line-height: 1.4;
+            overflow: hidden; display: -webkit-box;
+            -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2;
+        }
+        .product-specs {
+            font-size: 11px; color: #8a7560; line-height: 1.4;
+            background: rgba(200,146,42,0.05); padding: 6px 8px;
+            border-radius: 4px; border: 1px solid rgba(200,146,42,0.1);
+        }
+        .product-price { display: flex; align-items: baseline; gap: 8px; margin-top: auto; }
+        .price-now { font-size: 16px; font-weight: 700; color: #c8922a; font-family: 'Playfair Display', serif !important; }
+        .price-old { font-size: 12px; color: #4a3a28; text-decoration: line-through; }
+        .btn-cart {
+            padding: 9px; background: transparent; color: #c8922a;
+            border: 1px solid rgba(200,146,42,0.35); border-radius: 3px; cursor: pointer;
+            font-size: 11px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+            transition: all .25s;
+        }
+        .btn-cart:hover { background: #c8922a; color: #1a1209; }
+        .xem-them-wrap { text-align: center; margin: 44px 0 12px; }
+        .btn-xem-them {
+            padding: 13px 52px; background: transparent;
+            border: 1px solid rgba(200,146,42,0.5); color: #c8922a;
+            font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            border-radius: 3px; cursor: pointer; transition: all .3s;
+        }
+        .btn-xem-them:hover { background: #c8922a; color: #1a1209; }
+
+        /* ═══ PRODUCT DETAIL MODAL ═══ */
+        #product-detail-modal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.78); z-index: 9000;
+            align-items: center; justify-content: center; padding: 16px;
+        }
+        .pd-modal {
+            background: #1c1208; border: 1px solid rgba(200,146,42,0.25);
+            border-radius: 12px; max-width: 920px; width: 100%;
+            display: flex; position: relative; max-height: 94vh; overflow-y: auto;
+            animation: pdSlideIn .28s cubic-bezier(.34,1.56,.64,1);
+        }
+        @keyframes pdSlideIn {
+            from { opacity:0; transform:translateY(24px) scale(.97); }
+            to   { opacity:1; transform:translateY(0) scale(1); }
+        }
+        .pd-close {
+            position: absolute; top: 14px; right: 16px;
+            background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.3);
+            width: 30px; height: 30px; border-radius: 50%;
+            font-size: 15px; cursor: pointer; color: #c8922a;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .2s; z-index: 10;
+        }
+        .pd-close:hover { background: #c8922a; color: #1a1209; }
+        .pd-left { flex: 0 0 380px; padding: 24px 16px 24px 24px; }
+        .pd-main-img-wrap { border-radius: 8px; overflow: hidden; margin-bottom: 10px; background: #120b04; }
+        .pd-main-img-wrap img { width: 100%; height: 300px; object-fit: cover; display: block; border-radius: 8px; transition: opacity .3s; }
+        .pd-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pd-thumb { width: 58px; height: 58px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color .2s; background: #120b04; }
+        .pd-thumb.active { border-color: #c8922a; }
+        .pd-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .pd-right { flex: 1; padding: 28px 28px 28px 12px; display: flex; flex-direction: column; gap: 14px; }
+        .pd-status { font-size: 12px; color: #56a870; font-weight: 600; }
+        .pd-right h2 { font-size: 20px; color: #f5ede0; line-height: 1.45; margin: 0; font-weight: 600; }
+        .pd-price-row { display: flex; align-items: baseline; gap: 12px; }
+        #pd-price-now { font-size: 28px; font-weight: 700; color: #c8922a; font-family: 'Playfair Display', serif !important; }
+        #pd-price-old { font-size: 15px; color: #5a4a35; text-decoration: line-through; }
+        .pd-voucher { background: rgba(200,146,42,0.06); border: 1px dashed rgba(200,146,42,0.4); border-radius: 8px; padding: 12px 14px; }
+        .pd-voucher-title { font-size: 11px; font-weight: 700; color: #c8922a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+        .pd-voucher-code { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #d0c0a0; }
+        .pd-voucher-copy { padding: 4px 10px; background: #c8922a; color: #1a1209; border: none; border-radius: 4px; font-size: 11px; font-weight: 700; cursor: pointer; transition: background .2s; font-family: 'Be Vietnam Pro', sans-serif !important; }
+        .pd-voucher-copy:hover { background: #a8741a; }
+        .pd-ship { background: rgba(200,146,42,0.04); border: 1px solid rgba(200,146,42,0.15); border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+        .pd-ship-row { display: flex; gap: 10px; font-size: 13px; color: #c8b88a; align-items: center; }
+        .pd-ship-label { color: #6a5a45; min-width: 80px; font-weight: 500; }
+        .pd-ship-free { color: #56a870; font-weight: 600; }
+        .pd-qty-row { display: flex; align-items: center; gap: 16px; font-size: 13px; color: #c8b88a; }
+        .pd-qty { display: flex; align-items: center; border: 1px solid rgba(200,146,42,0.3); border-radius: 6px; overflow: hidden; }
+        .pd-qty button { width: 34px; height: 34px; background: rgba(200,146,42,0.08); border: none; font-size: 18px; cursor: pointer; color: #c8922a; transition: background .2s; }
+        .pd-qty button:hover { background: rgba(200,146,42,0.2); }
+        #pd-qty-val { width: 44px; text-align: center; font-weight: 700; font-size: 15px; color: #f5ede0; }
+        #pd-stock-info { color: #6a5a45; font-size: 12px; }
+        .pd-actions { display: flex; gap: 10px; }
+        .pd-btn-cart { flex: 1; padding: 13px 8px; background: transparent; border: 2px solid #c8922a; color: #c8922a; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .pd-btn-cart:hover { background: rgba(200,146,42,0.1); }
+        .pd-btn-buy { flex: 1; padding: 13px 8px; background: #c8922a; border: none; color: #1a1209; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .2s; }
+        .pd-btn-buy:hover { background: #a8741a; }
+        .pd-guarantees { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .pd-guarantee { display: flex; gap: 8px; align-items: flex-start; background: rgba(255,255,255,0.02); border: 1px solid rgba(200,146,42,0.1); border-radius: 8px; padding: 10px; font-size: 11px; color: #7a6a50; line-height: 1.5; }
+        .g-ico { font-size: 17px; flex-shrink: 0; }
+        .pd-support { background: rgba(200,146,42,0.08); border: 1px solid rgba(200,146,42,0.2); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+        .pd-support-icon { font-size: 26px; }
+        .pd-support-text small { font-size: 11px; color: #8a7060; display: block; }
+        .pd-support-text strong { font-size: 18px; color: #c8922a; font-family: 'Playfair Display', serif !important; }
+        @media (max-width: 700px) {
+            .pd-modal { flex-direction: column; }
+            .pd-left { flex: none; padding: 16px 16px 0; }
+            .pd-right { padding: 12px 16px 20px; }
+            .pd-main-img-wrap img { height: 220px; }
+            .pd-guarantees { grid-template-columns: 1fr; }
+        }
+
+        /* ═══ POLICY MODAL ═══ */
+        #policy-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72); z-index: 9100; align-items: center; justify-content: center; padding: 16px; }
+        .pol-box { background: #1c1208; border: 1px solid rgba(200,146,42,0.3); border-radius: 14px; max-width: 620px; width: 100%; padding: 36px; max-height: 85vh; overflow-y: auto; position: relative; animation: pdSlideIn .25s ease; }
+        .pol-box h2 { font-size: 22px; color: #f5ede0; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid rgba(200,146,42,0.4); }
+        .pol-box p { color: #a09070; line-height: 1.8; margin-bottom: 10px; font-size: 14px; }
+        .pol-box ul { color: #a09070; font-size: 14px; }
+        .pol-box li { line-height: 2; }
+        .pol-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 24px; cursor: pointer; color: #6a5a45; }
+        .pol-close:hover { color: #c8922a; }
+
+        /* ═══ CART BOX ═══ */
+        .cart-box { display: none; position: fixed; right: 20px; top: 130px; background: #1c1208; color: #f5ede0; border: 1px solid rgba(200,146,42,0.35); padding: 20px; width: 320px; border-radius: 10px; box-shadow: 0 10px 36px rgba(0,0,0,0.7); z-index: 998; }
+        .cart-box ul { list-style: none; padding: 0; color: #e8d5b0; font-size: 13px; }
+
+        /* ═══ FLOAT CONTACT ═══ */
+        .float-contact {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            z-index: 8000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .float-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+            position: relative;
+        }
+        .float-btn:hover { transform: scale(1.14); box-shadow: 0 6px 20px rgba(0,0,0,0.55); }
+
+        .float-btn::after {
+            content: attr(data-tip);
+            position: absolute;
+            right: 54px;
+            background: rgba(10,6,1,0.92);
+            color: #e8c060;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s;
+            border: 1px solid rgba(200,146,42,0.3);
+        }
+        .float-btn:hover::after { opacity: 1; }
+
+        .float-btn-phone { background: linear-gradient(135deg, #25d366 0%, #128c4e 100%); }
+        .float-btn-phone svg { width: 22px; height: 22px; fill: white; }
+        .float-btn-fb { background: linear-gradient(135deg, #1877f2 0%, #0a52c4 100%); }
+        .float-btn-fb svg { width: 22px; height: 22px; fill: white; }
+        .float-btn-zalo {
+            background: linear-gradient(135deg, #0068ff 0%, #004fcc 100%);
+            color: white; font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 800; font-size: 13px; letter-spacing: -0.5px;
+        }
+
+        /* ═══ AI CHAT WIDGET ═══ */
+        .chat-fab {
+            position: fixed;
+            left: 16px; bottom: 20px;
+            z-index: 8001; width: 52px; height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c8922a 0%, #8a5e10 100%);
+            border: 2px solid rgba(200,146,42,0.5);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(200,146,42,0.5);
+            transition: all .3s; animation: chatPulse 3s ease-in-out infinite;
+        }
+        .chat-fab:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(200,146,42,0.7); }
+        @keyframes chatPulse {
+            0%,100% { box-shadow: 0 4px 20px rgba(200,146,42,0.5); }
+            50% { box-shadow: 0 4px 28px rgba(200,146,42,0.8), 0 0 0 8px rgba(200,146,42,0.12); }
+        }
+        .chat-fab svg { width: 26px; height: 26px; fill: white; }
+
+        .chat-fab-badge {
+            position: absolute; top: -3px; right: -3px;
+            width: 18px; height: 18px; background: #e05a3a;
+            border-radius: 50%; font-size: 10px; font-weight: 700;
+            color: white; font-family: 'Be Vietnam Pro', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid #0a0601;
+        }
+
+        .chat-fab-label {
+            position: fixed; left: 74px; bottom: 34px;
+            background: rgba(26,14,4,0.97); border: 1px solid rgba(200,146,42,0.4);
+            color: #e8c060; font-size: 11px; font-weight: 600;
+            font-family: 'Be Vietnam Pro', sans-serif; padding: 5px 11px;
+            border-radius: 20px; white-space: nowrap; z-index: 8000;
+            animation: labelPop 4s ease-in-out infinite; pointer-events: none;
+        }
+        @keyframes labelPop {
+            0%,80%,100% { opacity:1; transform: translateX(0); }
+            90% { opacity:0; transform: translateX(-4px); }
+        }
+
+        .chat-panel {
+            display: none; position: fixed; left: 16px; bottom: 82px;
+            z-index: 8002; width: 340px; max-height: 500px;
+            background: #1a1006; border: 1px solid rgba(200,146,42,0.35);
+            border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.75), 0 0 0 1px rgba(200,146,42,0.08);
+            overflow: hidden; flex-direction: column;
+        }
+        .chat-panel.open { display: flex; animation: chatOpen .32s cubic-bezier(.34,1.56,.64,1); }
+        @keyframes chatOpen {
+            from { opacity:0; transform: translateY(20px) scale(.93); }
+            to   { opacity:1; transform: translateY(0) scale(1); }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #1f1409 0%, #2e1c09 100%);
+            border-bottom: 1px solid rgba(200,146,42,0.2);
+            padding: 13px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+        }
+        .chat-avatar {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: linear-gradient(135deg, #c8922a, #7a5010);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; flex-shrink: 0; border: 2px solid rgba(200,146,42,0.4);
+        }
+        .chat-info { flex: 1; }
+        .chat-name { font-size: 13px; font-weight: 700; color: #f5ede0; font-family: 'Be Vietnam Pro', sans-serif; }
+        .chat-status {
+            font-size: 11px; color: #56a870; font-family: 'Be Vietnam Pro', sans-serif;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .chat-status::before { content: '●'; font-size: 7px; }
+        .chat-close {
+            background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.25);
+            width: 28px; height: 28px; border-radius: 50%; font-size: 14px;
+            cursor: pointer; color: #c8922a; display: flex; align-items: center; justify-content: center;
+            transition: all .2s;
+        }
+        .chat-close:hover { background: #c8922a; color: #1a1209; }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto; padding: 14px 12px 6px;
+            display: flex; flex-direction: column; gap: 10px;
+            scrollbar-width: thin; scrollbar-color: rgba(200,146,42,0.15) transparent;
+        }
+        .chat-msg {
+            max-width: 88%; padding: 9px 13px; font-size: 13px; line-height: 1.58;
+            font-family: 'Be Vietnam Pro', sans-serif; animation: msgIn .22s ease;
+        }
+        @keyframes msgIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+        .chat-msg.bot {
+            background: rgba(200,146,42,0.07); border: 1px solid rgba(200,146,42,0.16);
+            color: #d4c4a0; align-self: flex-start; border-radius: 4px 12px 12px 12px;
+        }
+        .chat-msg.user {
+            background: linear-gradient(135deg, #a8741a, #c8922a); color: #1a1209;
+            align-self: flex-end; font-weight: 600; border-radius: 12px 12px 4px 12px;
+        }
+
+        .chat-typing {
+            display: none; align-self: flex-start; padding: 10px 14px;
+            background: rgba(200,146,42,0.07); border: 1px solid rgba(200,146,42,0.16);
+            border-radius: 4px 12px 12px 12px; align-items: center; gap: 4px;
+        }
+        .chat-typing.show { display: flex; }
+        .td { width: 6px; height: 6px; border-radius: 50%; background: #c8922a; animation: tdBounce 1.1s infinite; }
+        .td:nth-child(2) { animation-delay:.18s; }
+        .td:nth-child(3) { animation-delay:.36s; }
+        @keyframes tdBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-7px)} }
+
+        .chat-suggests { padding: 6px 10px 2px; display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+        .cs-btn {
+            padding: 5px 10px; background: rgba(200,146,42,0.06);
+            border: 1px solid rgba(200,146,42,0.22); border-radius: 20px;
+            font-size: 11px; color: #c8a060; cursor: pointer; transition: all .2s;
+            font-family: 'Be Vietnam Pro', sans-serif; white-space: nowrap;
+        }
+        .cs-btn:hover { background: rgba(200,146,42,0.18); color: #e8c060; border-color: rgba(200,146,42,0.5); }
+
+        .chat-input-row {
+            padding: 9px 10px; border-top: 1px solid rgba(200,146,42,0.12);
+            display: flex; gap: 7px; align-items: center; flex-shrink: 0;
+        }
+        .chat-input {
+            flex: 1; padding: 9px 13px; background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(200,146,42,0.22); border-radius: 20px;
+            color: #f5ede0; font-size: 13px; font-family: 'Be Vietnam Pro', sans-serif;
+            outline: none; transition: border-color .2s;
+        }
+        .chat-input:focus { border-color: rgba(200,146,42,0.5); }
+        .chat-input::placeholder { color: rgba(160,144,112,0.55); }
+        .chat-send {
+            width: 36px; height: 36px; background: #c8922a; border: none;
+            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all .2s; flex-shrink: 0;
+        }
+        .chat-send:hover { background: #e8c060; transform: scale(1.08); }
+        .chat-send svg { width: 16px; height: 16px; fill: #1a1209; }
+
+        @media (max-width: 480px) {
+            .chat-panel { width: calc(100vw - 32px); }
+            .chat-fab-label { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ FLOAT CONTACT ═══ -->
+<div class="float-contact">
+    <a href="tel:0928613686" class="float-btn float-btn-phone" data-tip="Gọi tư vấn: 0944 217 685" title="Gọi điện">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+    </a>
+    <a href="https://www.facebook.com/share/1JAgunUvKM/?mibextid=wwXIfr" target="_blank" class="float-btn float-btn-fb" data-tip="Facebook Fanpage" title="Facebook">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </a>
+    <a href="https://zalo.me/0928613686" target="_blank" class="float-btn float-btn-zalo" data-tip="Chat Zalo Tư Vấn" title="Zalo">
+        Zalo
+    </a>
+</div>
+
+<!-- ═══ AI CHAT WIDGET ═══ -->
+<button class="chat-fab" onclick="toggleChat()" title="Chat tư vấn AI Laptop">
+    <div class="chat-fab-badge" id="chatBadge">1</div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+</button>
+<div class="chat-fab-label" id="chatLabel">💬 Tư vấn Laptop AI</div>
+
+<!-- Panel chat -->
+<div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+        <div class="chat-avatar">💻</div>
+        <div class="chat-info">
+            <div class="chat-name">Laptop Assistant AI</div>
+            <div class="chat-status">Đang hoạt động</div>
+        </div>
+        <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <div class="chat-typing" id="chatTyping">
+        <div class="td"></div><div class="td"></div><div class="td"></div>
+    </div>
+
+    <div class="chat-suggests" id="chatSuggests">
+        <button class="cs-btn" onclick="sendSuggest(this)">🛡️ Bảo hành & Đổi trả</button>
+        <button class="cs-btn" onclick="sendSuggest(this)">💻 Chọn cấu hình theo nhu cầu</button>
+        <button class="cs-btn" onclick="sendSuggest(this)">💰 Mã giảm giá Laptop</button>
+        <button class="cs-btn" onclick="sendSuggest(this)">🔄 Thu mua Laptop cũ giá cao</button>
+        <button class="cs-btn" onclick="sendSuggest(this)">🚚 Giao hàng & Kiểm tra</button>
+        <button class="cs-btn" onclick="sendSuggest(this)">🔥 Gợi ý Laptop dưới 15tr</button>
+    </div>
+
+    <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" type="text" placeholder="Hỏi về cấu hình, tư vấn mua laptop..." onkeypress="if(event.key==='Enter')sendChat()">
+        <button class="chat-send" onclick="sendChat()">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+    <div class="promo-bar-track">
+        <span><span class="icon">⚡</span>SIÊU SALE LAPTOP CŨ & LIKENEW – TẶNG BALO + CHUỘT KHÔNG DÂY</span>
+        <span><span class="icon">🔥</span>Nhập mã LAP500 GIẢM 500K đơn từ 10tr</span>
+        <span><span class="icon">🔥</span>Nhập mã LAP1000 GIẢM 1TR đơn từ 20tr</span>
+        <span><span class="icon">🚚</span>Freeship & Giao nhanh 2h nội thành HCM</span>
+        <span><span class="icon">⚡</span>SIÊU SALE LAPTOP CŨ & LIKENEW – TẶNG BALO + CHUỘT KHÔNG DÂY</span>
+        <span><span class="icon">🔥</span>Nhập mã LAP500 GIẢM 500K đơn từ 10tr</span>
+        <span><span class="icon">🔥</span>Nhập mã LAP1000 GIẢM 1TR đơn từ 20tr</span>
+        <span><span class="icon">🚚</span>Freeship & Giao nhanh 2h nội thành HCM</span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header id="main-header">
+    <a href="trangchu.html" class="header-logo-text">
+        LAPTOP<br>
+        <small style="font-size:10px;letter-spacing:4px;color:#8a6a30;font-family:'Be Vietnam Pro',sans-serif;font-weight:300;">SECONDHAND</small>
+    </a>
+    <div class="header-search">
+        <input type="text" id="search" placeholder="Tìm kiếm theo tên máy, CPU, RAM...">
+        <button onclick="searchProduct()">🔍</button>
+    </div>
+    <div class="header-actions">
+        <a href="trangchu.html" class="header-action-item">
+            <span class="action-icon">📍</span><span>Trang chủ</span>
+        </a>
+        <button class="header-action-item" id="btn-login" onclick="window.location.href='dangnhap.html'">
+            <span class="action-icon">👤</span><span>Đăng nhập</span>
+        </button>
+        <button class="header-action-item" id="btn-register" onclick="window.location.href='dangnhap.html?tab=register'">
+            <span class="action-icon">📝</span><span>Đăng ký</span>
+        </button>
+        <button class="header-action-item" onclick="showCart()">
+            <div class="cart-icon-wrap">
+                <span class="action-icon">🛒</span>
+                <span class="cart-badge" id="cartCount">0</span>
+            </div>
+            <span>Giỏ hàng</span>
+        </button>
+    </div>
+</header>
+
+<!-- CATEGORY MENU -->
+<nav class="category-menu" id="main-nav">
+    <ul>
+        <li>
+            <a href="#" onclick="filterAndScroll('all');return false;">
+                💻 HÀNG MỚI VỀ<span class="badge-new">mới</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">THƯƠNG HIỆU <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="filterAndScroll('macbook');return false;">Apple MacBook</a></li>
+                <li><a href="#" onclick="filterAndScroll('dell');return false;">Dell Laptop</a></li>
+                <li><a href="#" onclick="filterAndScroll('thinkpad');return false;">Lenovo ThinkPad</a></li>
+                <li><a href="#" onclick="filterAndScroll('asus');return false;">Asus / ROG</a></li>
+                <li><a href="#" onclick="filterAndScroll('hp');return false;">HP Laptop</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">LAPTOP GAMING <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="filterAndScroll('gaming');return false;">Asus ROG / TUF</a></li>
+                <li><a href="#" onclick="filterAndScroll('gaming');return false;">Acer Nitro / Predator</a></li>
+                <li><a href="#" onclick="filterAndScroll('gaming');return false;">Lenovo Legion</a></li>
+                <li><a href="#" onclick="filterAndScroll('gaming');return false;">Dell Alienware</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">LAPTOP VĂN PHÒNG <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="filterAndScroll('vanphong');return false;">Dell XPS / Latitude</a></li>
+                <li><a href="#" onclick="filterAndScroll('vanphong');return false;">HP Envy / Spectre</a></li>
+                <li><a href="#" onclick="filterAndScroll('vanphong');return false;">Lenovo Yoga / Slim</a></li>
+                <li><a href="#" onclick="filterAndScroll('vanphong');return false;">LG Gram Siêu Nhẹ</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">ĐỒ HỌA - WORKSTATION <span class="arrow">▾</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="filterAndScroll('dohoa');return false;">Dell Precision</a></li>
+                <li><a href="#" onclick="filterAndScroll('dohoa');return false;">ThinkPad P Series</a></li>
+                <li><a href="#" onclick="filterAndScroll('dohoa');return false;">HP ZBook</a></li>
+            </ul>
+        </li>
+        <li><a href="#" onclick="filterAndScroll('vanphong');return false;">🎓 LAPTOP SINH VIÊN</a></li>
+        <li><a href="#" onclick="filterAndScroll('all');return false;"><span class="badge-sale">-30%</span> OUTLET MÁY CŨ</a></li>
+        <li class="thu-mua-item">
+            <a href="thumua.html">THU MUA LAPTOP CŨ</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- BANNER SLIDER -->
+<section class="banner-slider">
+    <div class="slide active" style="background-image:linear-gradient(rgba(10,7,2,0.55),rgba(10,7,2,0.65)),url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=80')">
+        <div class="slide-text">
+            <p class="slide-sub">MACBOOK LIKENEW 99%</p>
+            <h2>KHÁM PHÁ<br><span>CHÍNH HÃNG APPLE M1/M2/M3</span></h2>
+            <button onclick="document.querySelector('.products-section').scrollIntoView({behavior:'smooth'})">Xem ngay</button>
+        </div>
+    </div>
+    <div class="slide" style="background-image:linear-gradient(rgba(10,7,2,0.55),rgba(10,7,2,0.65)),url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1400&q=80')">
+        <div class="slide-text">
+            <p class="slide-sub">LAPTOP GAMING CHẤT LƯỢNG</p>
+            <h2>CHIẾN GAME ĐỈNH<br><span>RTX 3060 / 4060 GIÁ CỰC TỐT</span></h2>
+            <button onclick="document.querySelector('.products-section').scrollIntoView({behavior:'smooth'})">Săn deal ngay</button>
+        </div>
+    </div>
+    <div class="slide" style="background-image:linear-gradient(rgba(10,7,2,0.55),rgba(10,7,2,0.65)),url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1400&q=80')">
+        <div class="slide-text">
+            <p class="slide-sub">LAPTOP VĂN PHÒNG & SINH VIÊN</p>
+            <h2>BẢO HÀNH 12 THÁNG<br><span>GIÁ CHỈ TỪ 5 TRIỆU</span></h2>
+            <button onclick="document.querySelector('.products-section').scrollIntoView({behavior:'smooth'})">Xem ngay</button>
+        </div>
+    </div>
+    <button class="slide-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="slide-btn next" onclick="changeSlide(1)">&#10095;</button>
+    <div class="slide-dots">
+        <span class="dot active" onclick="goSlide(0)"></span>
+        <span class="dot" onclick="goSlide(1)"></span>
+        <span class="dot" onclick="goSlide(2)"></span>
+    </div>
+</section>
+
+<!-- ICON CATEGORY -->
+<section class="icon-cats">
+    <button class="icon-cat" onclick="filterAndScroll('macbook')">
+        <div class="icon-cat-img">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M16 16h32a4 4 0 014 4v20H12V20a4 4 0 014-4z" fill="#c8922a" opacity=".85"/><path d="M8 44h48a2 2 0 012 2v2H6v-2a2 2 0 012-2z" fill="#e8c060"/><path d="M28 44v-2h8v2" stroke="#1c1106" stroke-width="1.5"/></svg>
+        </div>
+        <span>MacBook</span>
+    </button>
+    <button class="icon-cat" onclick="filterAndScroll('gaming')">
+        <div class="icon-cat-img">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M12 20h40a4 4 0 014 4v16H8V24a4 4 0 014-4z" fill="#e05a3a" opacity=".9"/><path d="M6 44h52v4H6z" fill="#c8922a"/><circle cx="20" cy="30" r="3" fill="#fff" opacity=".8"/><path d="M42 27v6M39 30h6" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <span>Gaming</span>
+    </button>
+    <button class="icon-cat" onclick="filterAndScroll('vanphong')">
+        <div class="icon-cat-img">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="12" y="14" width="40" height="26" rx="3" fill="#c8a060" opacity=".85"/><path d="M8 44h48v4H8z" fill="#e8c060"/><path d="M26 22h12M26 28h8" stroke="#1c1106" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <span>Văn Phòng</span>
+    </button>
+    <button class="icon-cat" onclick="filterAndScroll('dohoa')">
+        <div class="icon-cat-img">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="10" y="14" width="44" height="28" rx="2" fill="#4a7ecb" opacity=".9"/><path d="M6 46h52v3H6z" fill="#6a9ee8"/><polygon points="22,34 32,22 42,34" fill="#e8c060"/></svg>
+        </div>
+        <span>Đồ Họa 3D</span>
+    </button>
+    <button class="icon-cat" onclick="filterAndScroll('thinkpad')">
+        <div class="icon-cat-img">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="12" y="16" width="40" height="24" rx="2" fill="#333" opacity=".9"/><path d="M8 44h48v4H8z" fill="#555"/><circle cx="32" cy="32" r="3" fill="#e05a3a"/></svg>
+        </div>
+        <span>ThinkPad</span>
+    </button>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>LAPTOP NỔI BẬT NGUYÊN BẢN</h2>
+            <div class="title-rule"></div>
+        </div>
+        <div class="sort-bar">
+            <div class="sort-bar-left">
+                <span>Sắp xếp:</span>
+                <select onchange="sortProducts(this.value)">
+                    <option value="default">Mới cập nhật</option>
+                    <option value="asc">Giá thấp → cao</option>
+                    <option value="desc">Giá cao → thấp</option>
+                </select>
+            </div>
+            <span id="product-count" style="font-size:12px;color:#6a5a45;"></span>
+        </div>
+        <div class="products" id="productGrid"></div>
+        <div class="xem-them-wrap">
+            <button class="btn-xem-them" onclick="xemThem()">Xem thêm sản phẩm</button>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div id="product-detail-modal" onclick="closeProductModal()">
+    <div class="pd-modal" onclick="event.stopPropagation()">
+        <button class="pd-close" onclick="closeProductModal()">✕</button>
+        <div class="pd-left">
+            <div class="pd-main-img-wrap"><img id="pd-main-img" src="" alt="Laptop"></div>
+            <div class="pd-thumbs" id="pd-thumbs"></div>
+        </div>
+        <div class="pd-right">
+            <div class="pd-status">● Còn hàng (Sẵn sàng giao ngay)</div>
+            <h2 id="pd-name"></h2>
+            <div class="pd-price-row">
+                <span id="pd-price-now"></span>
+                <span id="pd-price-old"></span>
+            </div>
+            <div class="pd-voucher">
+                <div class="pd-voucher-title">🎁 Quà tặng & Voucher đi kèm</div>
+                <div class="pd-voucher-code">
+                    <span>Tặng Balo + Chuột Không Dây + Mã <strong style="color:#c8922a;">LAP500</strong> giảm 500k</span>
+                    <button class="pd-voucher-copy" onclick="copyCode('LAP500')">Sao chép</button>
+                </div>
+            </div>
+            <div class="pd-ship">
+                <div class="pd-ship-row"><span class="pd-ship-label">Vận chuyển:</span><span>Từ kho TP. Hồ Chí Minh</span></div>
+                <div class="pd-ship-row"><span class="pd-ship-free">🚚 Kiểm tra máy thoải mái trước khi thanh toán</span></div>
+            </div>
+            <div class="pd-qty-row">
+                <span>Số lượng:</span>
+                <div class="pd-qty">
+                    <button onclick="changeQty(-1)">−</button>
+                    <span id="pd-qty-val">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+                <span id="pd-stock-info"></span>
+            </div>
+            <div class="pd-actions">
+                <button class="pd-btn-cart" id="pd-btn-cart">🛒 Thêm vào giỏ</button>
+                <button class="pd-btn-buy" id="pd-btn-buy">Mua ngay</button>
+            </div>
+            <div class="pd-guarantees">
+                <div class="pd-guarantee"><span class="g-ico">🛡️</span><span>Bảo hành 12 tháng, 1 đổi 1 trong 30 ngày</span></div>
+                <div class="pd-guarantee"><span class="g-ico">💻</span><span>Máy chuẩn nguyên bản 100%, chưa sửa chữa</span></div>
+                <div class="pd-guarantee"><span class="g-ico">⚙️</span><span>Cài phần mềm & vệ sinh máy trọn đời</span></div>
+                <div class="pd-guarantee"><span class="g-ico">🚀</span><span>Giao hàng hỏa tốc 2 giờ tại HCM</span></div>
+            </div>
+            <div class="pd-support">
+                <div class="pd-support-icon">🎧</div>
+                <div class="pd-support-text">
+                    <small>Hotline tư vấn kỹ thuật</small>
+                    <strong>0928 613 686</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POLICY MODAL -->
+<div id="policy-modal" onclick="closePolicy()">
+    <div class="pol-box" onclick="event.stopPropagation()">
+        <button class="pol-close" onclick="closePolicy()">✕</button>
+        <h2 id="policy-title"></h2>
+        <div id="policy-body"></div>
+    </div>
+</div>
+
+<!-- CART BOX -->
+<div id="cartBox" class="cart-box">
+    <h3 style="color:#c8922a;font-family:'Playfair Display',serif;margin-bottom:12px;font-size:18px;">🛒 Giỏ hàng Laptop</h3>
+    <ul id="cartItems"></ul>
+    <p style="margin-top:12px;border-top:1px solid rgba(200,146,42,0.3);padding-top:10px;">
+        <b style="color:#c8922a;">Tổng tiền:</b>
+        <span id="totalPrice" style="color:#f5ede0;font-weight:700;">0</span> đ
+    </p>
+    <div style="display:flex;gap:8px;margin-top:12px;">
+        <button onclick="goCheckout()" style="flex:1;padding:10px;background:#c8922a;color:#1a1209;border:none;border-radius:4px;font-weight:700;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;">Đặt hàng</button>
+        <button onclick="closeCart()" style="flex:1;padding:10px;background:transparent;color:#c8922a;border:1px solid rgba(200,146,42,0.4);border-radius:4px;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;">Đóng</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-subscribe">
+        <span>ĐĂNG KÝ NHẬN TƯ VẤN & BÁO GIÁ LAPTOP</span>
+        <div class="subscribe-form">
+            <input type="email" id="subscribe-email" placeholder="✉ Nhập email nhận voucher 500k...">
+            <button onclick="subscribeEmail()">✈ ĐĂNG KÝ</button>
+        </div>
+        <div class="footer-social">
+            <a href="https://zalo.me/0928613686" target="_blank" title="Zalo">💬</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+            <a href="https://www.facebook.com/share/1JAgunUvKM/?mibextid=wwXIfr" target="_blank" title="Facebook">📘</a>
+        </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-cols">
+        <div class="footer-col">
+            <h4>GIỚI THIỆU CỬA HÀNG</h4>
+            <p>LAPTOP SECONDHAND – Hệ Thống Laptop Cũ & Likenew Uy Tín HCM</p>
+            <p>📞 Hotline/Zalo: 0928 613 686</p>
+            <p>✉ Email: cs@laptopsecondhand.com</p>
+            <p>🕐 Giờ mở cửa: 08:30 – 21:30</p>
+        </div>
+        <div class="footer-col">
+            <h4>CHÍNH SÁCH</h4>
+            <ul>
+                <li><a href="#" onclick="openPolicy('dat-hang');return false;">Hướng dẫn trả góp 0%</a></li>
+                <li><a href="#" onclick="openPolicy('doi-tra');return false;">Chính sách bảo hành 1 đổi 1</a></li>
+                <li><a href="#" onclick="openPolicy('bao-mat');return false;">Chính sách bảo mật</a></li>
+                <li><a href="#" onclick="openPolicy('dieu-khoan');return false;">Điều khoản cam kết</a></li>
+                <li><a href="#" onclick="openPolicy('chon-size');return false;">Hướng dẫn chọn cấu hình</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>ĐỊA CHỈ HỆ THỐNG</h4>
+            <ul class="address-list">
+                <li><strong>📍 HỒ CHÍ MINH</strong><span>Số 56 Lê Văn Phan, Phú Thọ Hòa, Tân Phú</span></li>
+                <li><strong>📍 HỒ CHÍ MINH</strong><span>Số 363 Phạm Văn Bạch, Sơn Kì, Tân Bình</span></li>
+                <li><strong>📍 HỒ CHÍ MINH</strong><span>Số 143 Phan Anh, Bình Trị Đông, Bình Tân</span></li>
+            </ul>
+            <a href="diachi.html" class="xem-tat-ca">XEM TẤT CẢ CỬA HÀNG ›</a>
+        </div>
+        <div class="footer-col">
+            <h4>THANH TOÁN & TRẢ GÓP</h4>
+            <div class="payment-methods">
+                <span class="pay-badge">Trả Góp 0%</span>
+                <span class="pay-badge">VNPay</span>
+                <span class="pay-badge">COD</span>
+                <span class="pay-badge">Momo</span>
+                <span class="pay-badge">ZaloPay</span>
+                <span class="pay-badge">Thẻ ATM</span>
+            </div>
+            <div class="footer-trust" style="margin-top:20px;">
+                <div class="trust-badge">✅ ĐÃ THÔNG BÁO<br><small>BỘ CÔNG THƯƠNG</small></div>
+                <div class="trust-badge">🛡 DMCA<br><small>PROTECTED</small></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 Laptop Secondhand. All rights reserved.</p>
+</footer>
+
+<script src="js/java.js"></script>
+<script>
+/* ── SMOOTH HEADER HIDE/SHOW ── */
+(function(){
+    const header = document.getElementById('main-header');
+    const nav    = document.getElementById('main-nav');
+    if(!header||!nav) return;
+    let lastY=0, ticking=false;
+    function syncNav(){ nav.style.top = header.offsetHeight+'px'; }
+    syncNav();
+    window.addEventListener('resize', syncNav);
+    window.addEventListener('scroll',()=>{
+        if(!ticking){
+            requestAnimationFrame(()=>{
+                const cur=window.scrollY, diff=cur-lastY;
+                if(cur<80){
+                    header.style.transform='translateY(0)';
+                    nav.style.transform='translateY(0)';
+                } else if(diff>5){
+                    header.style.transform='translateY(-100%)';
+                    nav.style.transform=`translateY(calc(-100% - ${header.offsetHeight}px))`;
+                } else if(diff<-5){
+                    header.style.transform='translateY(0)';
+                    nav.style.transform='translateY(0)';
+                }
+                lastY=cur; ticking=false;
+            });
+            ticking=true;
+        }
+    },{passive:true});
+})();
+
+function filterAndScroll(cat){
+    if(typeof filter === 'function') {
+        filter(cat);
+    } else {
+        currentFilter = cat;
+        renderProducts();
+    }
+    setTimeout(()=>document.querySelector('.products-section').scrollIntoView({behavior:'smooth'}),80);
+}
+function copyCode(code){
+    navigator.clipboard ? navigator.clipboard.writeText(code).then(()=>alert('✅ Đã sao chép mã: '+code)) : alert('✅ Mã: '+code);
+}
+window.openAuth = function(mode){
+    window.location.href='dangnhap.html'+(mode==='register'?'?tab=register':'');
+};
+function goCheckout(){
+    if(typeof cart === 'undefined' || !cart.length){ alert('⚠️ Giỏ hàng đang trống!'); return; }
+    const isLogin=localStorage.getItem('isLogin')||localStorage.getItem('sh_current');
+    if(!isLogin){
+        if(confirm('Vui lòng đăng nhập để đặt mua Laptop. Đăng nhập ngay?')) window.location.href='dangnhap.html';
+        return;
+    }
+    localStorage.setItem('sh_cart', JSON.stringify({items:cart,total:total}));
+    window.location.href='thanhtoan.html';
+}
+window.createProductCard = function(p){
+    const oldP = p.oldPrice ? `<span class="price-old">${p.oldPrice.toLocaleString('vi-VN')}đ</span>` : '';
+    const bc = (b)=>{ if(!b) return 'voucher-badge'; if(b.includes('Mới')) return 'new-badge'; if(b.includes('Sale')||b.includes('-')) return 'sale-badge'; return 'voucher-badge'; };
+    const specsText = p.specs ? `<div class="product-specs">${p.specs}</div>` : '';
+    return `<div class="product" onclick="openProductModal(${p.id})">
+      <div class="product-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <span class="badge-product ${bc(p.badge)}">${p.badge || 'Máy Cũ'}</span>
+        <div class="product-quick-add" onclick="event.stopPropagation();addToCart('${p.name.replace(/'/g,"\\'")}',${p.price})">🛒 Chọn mua ngay</div>
+      </div>
+      <div class="product-info">
+        <h3>${p.name}</h3>
+        ${specsText}
+        <div class="product-price">
+          <span class="price-now">${p.price.toLocaleString('vi-VN')}đ</span>${oldP}
+        </div>
+        <button class="btn-cart" onclick="event.stopPropagation();addToCart('${p.name.replace(/'/g,"\\'")}',${p.price})">Thêm vào giỏ</button>
+      </div>
+    </div>`;
+};
+const _origOpen = window.openProductModal;
+window.openProductModal = function(id){
+    _origOpen && _origOpen(id);
+    const p = allProducts.find(x=>x.id===id);
+    if(!p) return;
+    const thumbs = [p.img, p.img, p.img];
+    document.getElementById('pd-thumbs').innerHTML = thumbs.map((s,i)=>
+        `<div class="pd-thumb ${i===0?'active':''}" onclick="switchThumb(this,'${s}')"><img src="${s}" loading="lazy"></div>`
+    ).join('');
+};
+function switchThumb(el,src){
+    document.querySelectorAll('.pd-thumb').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('pd-main-img').src=src;
+}
+const _origRender = window.renderProducts;
+window.renderProducts = function(){
+    _origRender && _origRender();
+    let list=[...allProducts];
+    if(typeof currentFilter !== 'undefined' && currentFilter!=='all') list=list.filter(p=>p.category===currentFilter);
+    const count = typeof displayCount !== 'undefined' ? displayCount : list.length;
+    const shown=Math.min(count,list.length);
+    const el=document.getElementById('product-count');
+    if(el) el.textContent=`Hiển thị ${shown} / ${list.length} laptop`;
+};
+window.addEventListener('DOMContentLoaded',()=>{
+    const cur=JSON.parse(localStorage.getItem('sh_current')||'null');
+    if(cur){
+        const btnL=document.getElementById('btn-login');
+        const btnR=document.getElementById('btn-register');
+        if(btnL){ btnL.innerHTML=`<span class="action-icon">👤</span><span>${cur.name}</span>`; btnL.onclick=()=>{ if(confirm('Đăng xuất tài khoản?')){ localStorage.removeItem('sh_current'); localStorage.removeItem('isLogin'); location.reload(); } }; }
+        if(btnR) btnR.style.display='none';
+    }
+    const s=document.getElementById('search');
+    if(s) s.addEventListener('keypress',e=>{if(e.key==='Enter') searchProduct();});
+
+    // Khởi tạo chat widget AI Laptop
+    initChat();
+});
+
+/* ═══════════════════════════════════════════════
+   AI CHAT WIDGET – TƯ VẤN LAPTOP AI
+═══════════════════════════════════════════════ */
+let chatOpen = false;
+let chatHistory = [];
+
+const SHOP_SYSTEM_PROMPT = `Bạn là trợ lý tư vấn AI chuyên nghiệp của Laptop SecondHand – Hệ thống Laptop cũ, Likenew uy tín tại TP.HCM.
+
+THÔNG TIN HỆ THỐNG:
+- Tên: Laptop SecondHand HCM
+- Hotline/Zalo: 0928 613 686 | Email: cs@laptopsecondhand.com
+- Giờ làm việc: 08:30 – 21:30 hàng ngày
+- Địa chỉ: 3 chi nhánh tại Tân Phú, Tân Bình, Bình Tân (HCM)
+
+SẢN PHẨM & CẤU HÌNH:
+- MacBook cũ (Air M1, M2, Pro M1, M2, M3), Dell XPS, Dell Latitude, Lenovo ThinkPad X1 Carbon, Asus ROG/TUF Gaming, HP Envy, Laptop Workstation Đồ họa.
+- Tất cả máy bán ra đều nguyên bản, đính kèm sạc zin, tặng balo + chuột không dây.
+
+CHÍNH SÁCH BẢO HÀNH & ĐỔI TRẢ:
+- Bảo hành 12 tháng phần cứng, 1 đổi 1 trong 30 ngày đầu nếu có lỗi nhà sản xuất.
+- Hỗ trợ cài đặt Win, Office, phần mềm đồ họa & vệ sinh máy trọn đời miễn phí.
+
+THU MUA LAPTOP CŨ:
+- Thu mua Laptop cũ, đổi cũ lấy mới với giá cao từ 30% - 80% giá trị thị trường.
+- Định giá nhanh qua Zalo: 0928 613 686.
+
+MÃ GIẢM GIÁ & VẬN CHUYỂN:
+- LAP500 (Giảm 500k đơn từ 10tr), LAP1000 (Giảm 1tr đơn từ 20tr).
+- Giao hàng hỏa tốc 2 giờ tại HCM, Ship COD toàn quốc (được mở kiểm tra máy trước khi trả tiền).
+
+TÁC PHONG TRẢ LỜI:
+- Tư vấn nhiệt tình, thân thiện, chính xác thông số kỹ thuật, gợi ý cấu hình phù hợp với tầm giá và mục đích sử dụng.`;
+
+function initChat() {
+    addBotMsg('Xin chào! 👋 Mình là Trợ Lý AI của Laptop SecondHand.\n\nBạn cần tư vấn chọn mua Laptop trong tầm giá bao nhiêu, hay cần hỗ trợ kiểm tra cấu hình, bảo hành & thu mua máy cũ?');
+}
+
+function toggleChat() {
+    const panel = document.getElementById('chatPanel');
+    const label = document.getElementById('chatLabel');
+    const badge = document.getElementById('chatBadge');
+    chatOpen = !chatOpen;
+    if (chatOpen) {
+        panel.classList.add('open');
+        if (label) label.style.display = 'none';
+        if (badge) badge.style.display = 'none';
+        setTimeout(() => {
+            const msgs = document.getElementById('chatMessages');
+            if (msgs) msgs.scrollTop = msgs.scrollHeight;
+            document.getElementById('chatInput').focus();
+        }, 100);
+    } else {
+        panel.classList.remove('open');
+        if (label) label.style.display = 'block';
+    }
+}
+
+function addBotMsg(text) {
+    const msgs = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg bot';
+    div.innerHTML = text.replace(/\n/g, '<br>');
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMsg(text) {
+    const msgs = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg user';
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping(show) {
+    document.getElementById('chatTyping').className = 'chat-typing' + (show ? ' show' : '');
+    if (show) {
+        const msgs = document.getElementById('chatMessages');
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+}
+
+function sendSuggest(btn) {
+    document.getElementById('chatInput').value = btn.textContent.trim();
+    sendChat();
+}
+
+async function sendChat() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    addUserMsg(text);
+    
+    const suggests = document.getElementById('chatSuggests');
+    if (suggests) suggests.style.display = 'none';
+
+    chatHistory.push({ role: 'user', content: text });
+    showTyping(true);
+
+    try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 1000,
+                system: SHOP_SYSTEM_PROMPT,
+                messages: chatHistory
+            })
+        });
+
+        const data = await response.json();
+        showTyping(false);
+
+        if (data.content && data.content[0]) {
+            const reply = data.content[0].text;
+            chatHistory.push({ role: 'assistant', content: reply });
+            addBotMsg(reply);
+        } else {
+            addBotMsg('Xin lỗi bạn, trợ lý AI đang bận. Vui lòng liên hệ trực tiếp kỹ thuật viên qua Hotline/Zalo: 📞 0944 217 685');
+        }
+    } catch (err) {
+        showTyping(false);
+        addBotMsg('Hệ thống đang bảo trì kết nối AI. Bạn nhắn trực tiếp Zalo: 📞 <strong style="color:#c8922a;">0944 217 685</strong> để được nhân viên hỗ trợ nhanh nhất nhé!');
+    }
+}
+</script>
+</body>
+</html>
